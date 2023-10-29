@@ -2,6 +2,7 @@
 {
     public class DetectedObject
     {
+        private string outputFileName = string.Empty;
         private readonly string @class;
         private readonly double confidence;
         private readonly int x;
@@ -9,7 +10,15 @@
         private readonly int w;
         private readonly int h;
 
-        public string OutputFileName = string.Empty;
+        public string OutputFileName
+        {
+            get => outputFileName;
+            set
+            {
+                if (value != outputFileName)
+                    outputFileName = value;
+            }
+        }
         public double Confidence => confidence;
         public int Area => h * w;
         public (int X, int Y, int W, int H) BoxProperties => (x, y, w, h);
